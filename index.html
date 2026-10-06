@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Study Dashboard</title>
+    <title>My Personal Hub</title>
     <style>
         body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background-color: #f5f7fa; color: #333; display: flex; height: 100vh; overflow: hidden; }
         #sidebar { width: 240px; background-color: #2d3e50; color: white; padding: 20px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
@@ -18,49 +18,27 @@
         .app-icon { font-size: 36px; margin-bottom: 10px; }
         .app-name { font-weight: 600; font-size: 14px; color: #333; }
         .app-tag { font-size: 11px; color: #888; margin-top: 4px; text-transform: uppercase; }
-        #app-overlay { display: none; position: fixed; top: 0; left: 240px; right: 0; bottom: 0; background: #fff; z-index: 999; flex-direction: column; }
-        #overlay-bar { background: #2d3e50; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
-        #overlay-frame { flex: 1; border: none; width: 100%; height: 100%; }
-        .close-btn { background: #ff4d4f; color: white; border: none; padding: 6px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; }
     </style>
 </head>
 <body>
     <div id="sidebar">
         <div>
-            <h2>Canvas Dashboard</h2>
-            <div class="nav-item active" onclick="closeApp()">🏠 Core Apps</div>
-            <div class="nav-item">Grades & Modules</div>
+            <h2>Navigation Hub</h2>
+            <div class="nav-item active">🏠 My Apps</div>
         </div>
-        <div style="font-size: 11px; color: #7f8c8d; text-align: center;">Verified Student Station v5.2</div>
+        <div style="font-size: 11px; color: #7f8c8d; text-align: center;">Personal Hub v1.0</div>
     </div>
     <div id="main-content">
-        <h1 class="header-title">Educational Learning Resource Modules</h1>
+        <h1 class="header-title">My Bookmarks & Applications</h1>
         <div class="app-grid">
-            <div class="app-card" onclick="openApp('YouTube Player', 'https://youtube.com')">
-                <div class="app-icon">📺</div><div class="app-name">YouTube View</div><div class="app-tag">Media Stream</div>
+            <!-- This opens a clean bypass window instead of embedding -->
+            <div class="app-card" onclick="window.open('https://youtube.com', '_blank')">
+                <div class="app-icon">📺</div><div class="app-name">YouTube</div><div class="app-tag">Streaming</div>
             </div>
-            <div class="app-card" onclick="openApp('TikTok Feed', 'https://tiktok.com')">
-                <div class="app-icon">🎵</div><div class="app-name">TikTok Sync</div><div class="app-tag">Social Media</div>
+            <div class="app-card" onclick="window.open('https://tiktok.com', '_blank')">
+                <div class="app-icon">🎵</div><div class="app-name">TikTok</div><div class="app-tag">Social</div>
             </div>
         </div>
     </div>
-    <div id="app-overlay">
-        <div id="overlay-bar">
-            <span id="overlay-title" style="font-weight: bold;">Loading...</span>
-            <button class="close-btn" onclick="closeApp()">Back to Dashboard</button>
-        </div>
-        <iframe id="overlay-frame" src=""></iframe>
-    </div>
-    <script>
-        function openApp(name, url) {
-            document.getElementById('overlay-title').innerText = name;
-            document.getElementById('overlay-frame').src = url;
-            document.getElementById('app-overlay').style.display = 'flex';
-        }
-        function closeApp() {
-            document.getElementById('app-overlay').style.display = 'none';
-            document.getElementById('overlay-frame').src = '';
-        }
-    </script>
 </body>
 </html>
